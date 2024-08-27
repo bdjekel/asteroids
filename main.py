@@ -3,13 +3,9 @@ from constants import *
 
 def main():
     pygame.init()
-    print("initiated successfully")
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
-    if not screen:
-        print("screen not initialized")
-    else:
-        print("screen working")
+    game_clock = pygame.time.Clock()
+    dt = 0
 
     while True:
         for event in pygame.event.get():
@@ -17,6 +13,8 @@ def main():
                 return
 
         screen.fill((0,0,0))
+        dt = game_clock.tick(60) / 1000
+        print(dt)
         pygame.display.flip()
 
 if __name__ == "__main__":
